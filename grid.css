@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  background-color: black;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  max-height: 100vh;
+}
+#grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* height: 100vh;
+  max-height: 100vh; */
+  height: 100vh;
+  width: 100vh;
+  background-color: black;
+}
+
+.row {
+  display: flex;
+  flex: 1;
+  background-color: black;
+  justify-content: space-evenly;
+}
+
+.square {
+  flex: 1 0 auto;
+  height: auto;
+  width: auto;
+  background-color: aqua;
+  border: 2px solid white;
+  margin: 1% 0 0 1%;
+}

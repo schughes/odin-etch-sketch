@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  background-color: black;
+}
+
+#grid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 80vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+.row {
+  display: flex;
+  flex: 0 0 20%;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+  /* align-items: stretch; */
+  /* how to make height dynamic with number of rows? */
+}
+
+.square {
+  flex-grow: 1;
+  border: 2px solid white;
+  background: pink;
+  display: flex;
+  align-items: center;
+
+  /* min-height: 25px;
+  height: 100%;
+  max-height: 20vh;
+
+  min-width: 25px;
+  width: 100%;
+  max-width: 20vh;
+ */
+  /* height: 90%; */
+  /* width: 20%;
+  padding-bottom: 20%;
+  border: 2px solid white; */
+}
+
+.col {
+  flex-direction: column;
+  /* min-height: 25px; */
+  /* max-height: 20vh; */
+  height: 80%;
+  margin: 2.5%;
+
+  /* min-width: 25px;
+  max-width: 20vh; */
+}
