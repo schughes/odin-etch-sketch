@@ -1,7 +1,12 @@
-function updateOpacity(event) {
-  let target = event.target.querySelector(".square");
-  let opacity = window.getComputedStyle(target).getPropertyValue("opacity");
-  target.style.opacity = opacity;
+function increaseOpacity(target) {
+  let currentOpacity = parseFloat(
+    window.getComputedStyle(target).getPropertyValue("opacity")
+  );
+  currentOpacity += 0.025;
+  if (currentOpacity >= 1) {
+    currentOpacity = 1;
+  }
+  target.style.opacity = currentOpacity;
 }
 
 function clearOpacity(event) {
@@ -9,8 +14,7 @@ function clearOpacity(event) {
   target.style.opacity = 0;
 }
 
-function createGrid() {
-  let n = 4;
+function createGrid(n) {
   for (let i = 1; i <= n; i++) {
     let row = document.createElement("div");
     row.id = `r${i}`;
@@ -27,11 +31,23 @@ function createGrid() {
   }
 }
 
+let intervalId;
+const n = 6;
 document.addEventListener("DOMContentLoaded", function (event) {
-  createGrid();
+  createGrid(n);
   const boxes = document.querySelectorAll(".box");
   boxes.forEach((box) => {
-    // box.addEventListener("mouseleave", updateOpacity);
-    // box.addEventListener("click", clearOpacity);
+    box.addEventListener("mouseenter", (event) => {
+      let target = event.target.querySelector(".square");
+      intervalId = setInterval(() => {
+        increaseOpacity(target);
+      }, 50);
+    });
+    box.addEventListener("mouseleave", () => {
+      clearInterval(intervalId);
+    });
+    box.addEventListener("click", (event) => {
+      event.target.style.opacity = 0;
+    });
   });
 });

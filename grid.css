@@ -14,8 +14,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* height: 100vh;
-  max-height: 100vh; */
   height: 80vh;
   width: 80vh;
   background-color: black;
@@ -40,9 +38,4 @@ body {
   flex: 1 0 auto;
   background-color: aqua;
   opacity: 0;
-  transition: opacity 5s ease-in;
-}
-
-.square:hover {
-  opacity: 1;
 }
