@@ -1,3 +1,8 @@
+let intervalId;
+let n = 6;
+let clickCount = 0;
+let doubleClickThreshold = 300;
+
 function increaseOpacity(target) {
   let currentOpacity = parseFloat(
     window.getComputedStyle(target).getPropertyValue("opacity")
@@ -31,10 +36,6 @@ function createGrid(n) {
   }
 }
 
-let intervalId;
-let n = 6;
-let clickCount = 0;
-let doubleClickThreshold = 300;
 document.addEventListener("DOMContentLoaded", function (event) {
   createGrid(n);
   const boxes = document.querySelectorAll(".box");
