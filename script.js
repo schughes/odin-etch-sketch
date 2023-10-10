@@ -1,5 +1,16 @@
+function updateOpacity(event) {
+  let target = event.target.querySelector(".square");
+  let opacity = window.getComputedStyle(target).getPropertyValue("opacity");
+  target.style.opacity = opacity;
+}
+
+function clearOpacity(event) {
+  let target = event.target;
+  target.style.opacity = 0;
+}
+
 function createGrid() {
-  let n = 8;
+  let n = 4;
   for (let i = 1; i <= n; i++) {
     let row = document.createElement("div");
     row.id = `r${i}`;
@@ -18,4 +29,9 @@ function createGrid() {
 
 document.addEventListener("DOMContentLoaded", function (event) {
   createGrid();
+  const boxes = document.querySelectorAll(".box");
+  boxes.forEach((box) => {
+    // box.addEventListener("mouseleave", updateOpacity);
+    // box.addEventListener("click", clearOpacity);
+  });
 });

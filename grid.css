@@ -40,4 +40,9 @@ body {
   flex: 1 0 auto;
   background-color: aqua;
   opacity: 0;
+  transition: opacity 5s ease-in;
+}
+
+.square:hover {
+  opacity: 1;
 }
