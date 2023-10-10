@@ -32,7 +32,9 @@ function createGrid(n) {
 }
 
 let intervalId;
-const n = 6;
+let n = 6;
+let clickCount = 0;
+let doubleClickThreshold = 300;
 document.addEventListener("DOMContentLoaded", function (event) {
   createGrid(n);
   const boxes = document.querySelectorAll(".box");
@@ -47,7 +49,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
       clearInterval(intervalId);
     });
     box.addEventListener("click", (event) => {
+      clickCount++;
       event.target.style.opacity = 0;
+      if (clickCount === 1) {
+        setTimeout(() => {
+          if (clickCount === 1) {
+            console.log("single click");
+          } else {
+            console.log("double click");
+            boxes.forEach((_) => {
+              _.querySelector(".square").style.opacity = 0;
+            });
+          }
+          clickCount = 0;
+        }, doubleClickThreshold);
+      }
     });
   });
 });
