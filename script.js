@@ -2,7 +2,7 @@ function increaseOpacity(target) {
   let currentOpacity = parseFloat(
     window.getComputedStyle(target).getPropertyValue("opacity")
   );
-  currentOpacity += 0.025;
+  currentOpacity += 0.04;
   if (currentOpacity >= 1) {
     currentOpacity = 1;
   }
@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (clickCount === 1) {
         setTimeout(() => {
           if (clickCount === 1) {
-            console.log("single click");
+            // console.log("single click");
           } else {
-            console.log("double click");
+            // console.log("double click");
             boxes.forEach((_) => {
               _.querySelector(".square").style.opacity = 0;
             });
